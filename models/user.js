@@ -15,7 +15,7 @@ export default (sequelize, DataTypes) => {
         User.belongsToMany(models.Team, {
             through: 'member',
             foriegnKey: 'userId'
-        })
+        });
     };
 
     return User;

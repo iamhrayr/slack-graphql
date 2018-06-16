@@ -5,12 +5,12 @@ export default (sequelize, DataTypes) => {
 
     Message.associate = function(models) {
         // 1:M
-        Message.belongsToMany(models.Channel, {
+        Message.belongsTo(models.Channel, {
             foriegnKey: 'channelId'
         });
-        Message.belongsTo(models.User,{
+        Message.belongsTo(models.User, {
             foriegnKey: 'userId'
-        })
+        });
     };
 
     return Message;

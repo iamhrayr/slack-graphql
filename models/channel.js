@@ -1,10 +1,11 @@
 export default (sequelize, DataTypes) => {
     const Channel = sequelize.define('channel', {
         name: DataTypes.STRING,
-        public: DataTypes.BOOLEAN,
+        public: DataTypes.BOOLEAN
     });
 
     Channel.associate = function(models) {
+        // 1:M
         Channel.belongsTo(models.Team, {
             foriegnKey: 'teamId'
         });
