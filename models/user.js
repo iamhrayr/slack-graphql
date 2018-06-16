@@ -14,7 +14,12 @@ export default (sequelize, DataTypes) => {
     User.associate = function(models) {
         User.belongsToMany(models.Team, {
             through: 'member',
-            foriegnKey: 'userId'
+            foriegnKey: { name: 'userId', field: 'user_id' }
+        });
+        // N:M
+        User.belongsToMany(models.Channel, {
+            through: 'channel_member',
+            foriegnKey: { name: 'userId', field: 'user_id' }
         });
     };
 

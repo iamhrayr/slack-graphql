@@ -1,15 +1,13 @@
 import Sequelize from 'sequelize';
 
-// const sequelize = new Sequelize('slack', 'adxqbzkb', '5-gxAugMg0xwvNiHKc8PqqIJYyIwxU-k', {
-//     dialect: 'postgres'
-// });
 const sequelize = new Sequelize(
-    'postgres://adxqbzkb:5-gxAugMg0xwvNiHKc8PqqIJYyIwxU-k@elmer.db.elephantsql.com:5432/adxqbzkb'
+    'postgres://adxqbzkb:5-gxAugMg0xwvNiHKc8PqqIJYyIwxU-k@elmer.db.elephantsql.com:5432/adxqbzkb',
+    {
+        definde: {
+            underscored: true
+        }
+    }
 );
-
-sequelize.authenticate().then(() => {
-    console.log('connected to DB');
-});
 
 const models = {
     User: sequelize.import('./user'),

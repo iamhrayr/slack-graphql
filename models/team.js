@@ -9,11 +9,11 @@ export default (sequelize, DataTypes) => {
     Team.associate = function(models) {
         Team.belongsToMany(models.User, {
             through: 'member',
-            foriegnKey: 'teamId'
+            foriegnKey: { name: 'teamId', field: 'team_id' }
         });
-        Team.belongsTo(models.User,{
+        Team.belongsTo(models.User, {
             foriegnKey: 'owner'
-        })
+        });
     };
 
     return Team;

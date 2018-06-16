@@ -6,10 +6,10 @@ export default (sequelize, DataTypes) => {
     Message.associate = function(models) {
         // 1:M
         Message.belongsTo(models.Channel, {
-            foriegnKey: 'channelId'
+            foriegnKey: { name: 'channelId', field: 'channel_id' }
         });
         Message.belongsTo(models.User, {
-            foriegnKey: 'userId'
+            foriegnKey: { name: 'userId', field: 'user_id' }
         });
     };
 
